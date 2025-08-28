@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hospital Equipment Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      body {
+        font-family: system-ui;
+        background-color: #0e1621;
+        color: #ffffff;
+        padding: 16px;
+      }
+      .card {
+        background: #1f2a38;
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Hospital Equipment Dashboard</h2>
+    <div class="card" id="welcome">Loading user info…</div>
+    <div class="card" id="tasks">Loading tasks…</div>
+
+    <script>
+      const tg = window.Telegram.WebApp;
+      tg.expand();
+
+      document.getElementById("welcome").innerText = `👋 Hello, ${tg.initDataUnsafe.user?.first_name || "Guest"}!`;
+
+      // Simulated task count
+      document.getElementById("tasks").innerText = `📋 You have 3 open tasks today.`;
+    </script>
+  </body>
+</html>
